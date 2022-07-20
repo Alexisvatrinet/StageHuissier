@@ -65,6 +65,10 @@ public class HUB extends JFrame {
 		btnNewButton_2 = new JButton("Penal");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Penal p = new Penal();
+				p.show();
+				
 			}
 		});
 		btnNewButton_2.setBounds(306, 48, 117, 29);

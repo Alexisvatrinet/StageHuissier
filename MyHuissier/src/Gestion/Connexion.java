@@ -4,12 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.mysql.cj.xdevapi.Result;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -60,6 +66,38 @@ public class Connexion extends JFrame {
 		JButton btnNewButton = new JButton("Confirmer");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
+				try {
+					
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					
+					
+					connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd_huissier","root","root");
+					coReussi = true;
+					
+					String users = textField.getText();
+					String mdp = passwordField.getText();
+					
+					Statement stm = connection.createStatement();
+					String sql = "SELECT * FROM Connexion where users='"+users+"' AND mdp='"+mdp+"'";
+					ResultSet result = stm.executeQuery(sql);
+					
+					if(result.next()) {
+						dispose();
+						HUB hub = new HUB();
+						hub.show();
+					} 
+					else {
+						JOptionPane.showInputDialog(this,"login et password faux...");
+						textField.setText("");
+						passwordField.setText("");
+						
+						
+					}
+					
+				}catch(Exception e1) {
+					System.out.println(e1.getMessage());
+				}
 			}
 		});
 		btnNewButton.setBounds(112, 175, 117, 29);
@@ -68,6 +106,7 @@ public class Connexion extends JFrame {
 		JButton btnNewButton_1 = new JButton("Quitter");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
@@ -83,24 +122,5 @@ public class Connexion extends JFrame {
 		textField.setBounds(148, 99, 130, 26);
 		contentPane.add(textField);
 	
-
-	
-	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-	
-	
-	connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/pizzeria","root","root");
-	coReussi = true;
-	
-
-	
-	
-	
-	}
-	catch (Exception e) {
-		throw new RuntimeException("Erreur detecte");
-	
-		
-	}
 }
 }
