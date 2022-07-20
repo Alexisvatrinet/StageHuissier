@@ -5,11 +5,20 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Api"/>
 	<classpathentry kind="src" path="MyHuissier/src"/>
 	<classpathentry kind="lib" path="mysql-connector-java-8.0.28.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/alexis/Sites/localhost/Stage/poi-3.15/poi-3.15.jar"/>
+	<classpathentry kind="lib" path="/Users/alexis/Sites/localhost/Stage/poi-3.15/poi-examples-3.15.jar"/>
+	<classpathentry kind="lib" path="/Users/alexis/Sites/localhost/Stage/poi-3.15/poi-excelant-3.15.jar"/>
+	<classpathentry kind="lib" path="/Users/alexis/Sites/localhost/Stage/poi-3.15/poi-ooxml-3.15.jar"/>
+	<classpathentry kind="lib" path="/Users/alexis/Sites/localhost/Stage/poi-3.15/poi-ooxml-schemas-3.15.jar"/>
+	<classpathentry kind="lib" path="/Users/alexis/Sites/localhost/Stage/poi-3.15/poi-scratchpad-3.15.jar"/>
+	<classpathentry kind="lib" path="/Users/alexis/Sites/localhost/Stage/poi-3.15/ooxml-lib/curvesapi-1.04.jar"/>
+	<classpathentry kind="lib" path="/Users/alexis/Sites/localhost/Stage/poi-3.15/ooxml-lib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="output" path="MyHuissier/bin"/>
 </classpath>

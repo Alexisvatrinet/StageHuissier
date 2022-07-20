@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JPasswordField;
@@ -18,6 +21,10 @@ public class Connexion extends JFrame {
 	private JPanel contentPane;
 	private JPasswordField passwordField;
 	private JTextField textField;
+	private boolean coReussi;
+	
+	private static Connection connection = null;
+	private static Scanner scanner = new Scanner(System.in);
 
 	/**
 	 * Launch the application.
@@ -39,6 +46,10 @@ public class Connexion extends JFrame {
 	 * Create the frame.
 	 */
 	public Connexion() {
+		initialize();
+		
+	}
+		private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -71,6 +82,25 @@ public class Connexion extends JFrame {
 		textField.setColumns(10);
 		textField.setBounds(148, 99, 130, 26);
 		contentPane.add(textField);
-	}
+	
 
+	
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+	
+	
+	connection = DriverManager.getConnection("jdbc:mysql://localhost:8889/pizzeria","root","root");
+	coReussi = true;
+	
+
+	
+	
+	
+	}
+	catch (Exception e) {
+		throw new RuntimeException("Erreur detecte");
+	
+		
+	}
+}
 }

@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.io.File;
 import java.io.FileOutputStream;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 public class Acte extends JFrame {
 
